@@ -1,6 +1,6 @@
 # ============================================
 # PAYPAL PAYMENT SIMULATOR
-# Simulates real PayPal transactions! 💳
+# Simulates real PayPal transactions! 
 # ============================================
 
 import psycopg2
@@ -79,8 +79,8 @@ def main():
     print("=" * 55)
 
     conn = psycopg2.connect(**DB_CONFIG)
-    print("✅ Connected to PayPal database!")
-    print("⏳ Generating transactions every 2 seconds...")
+    print("Connected to PayPal database!")
+    print("Generating transactions every 2 seconds...")
     print("Press Ctrl+C to stop\n")
 
     count = 0
@@ -90,7 +90,7 @@ def main():
             save_transaction(conn, txn)
             count += 1
 
-            status_icon = "✅" if txn["status"] == "success" else "❌"
+            status_icon = if txn["status"] == "success" else "❌"
             print(f"{status_icon} #{count} | "
                   f"{txn['sender_email'][:20]:<20} | "
                   f"${txn['amount']:>7.2f} {txn['currency']} | "
@@ -100,14 +100,14 @@ def main():
             time.sleep(2)
 
         except KeyboardInterrupt:
-            print(f"\n⛔ Stopped! Total transactions: {count}")
+            print(f"\n Stopped! Total transactions: {count}")
             break
         except Exception as e:
-            print(f"❌ Error: {e}")
+            print(f" Error: {e}")
             break
 
     conn.close()
-    print("✅ Done!")
+    print("Done!")
 
 if __name__ == "__main__":
     main()
