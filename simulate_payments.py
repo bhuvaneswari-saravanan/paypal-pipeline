@@ -75,7 +75,7 @@ def save_transaction(conn, txn):
 # ---- MAIN ----
 def main():
     print("=" * 55)
-    print("💳 PAYPAL PAYMENT SIMULATOR STARTED!")
+    print("PAYPAL PAYMENT SIMULATOR STARTED!")
     print("=" * 55)
 
     conn = psycopg2.connect(**DB_CONFIG)
